@@ -1,4 +1,4 @@
 pandas
 scikit-surprise
-mysql
+psycopg2-binary
 flask

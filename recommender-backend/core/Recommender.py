@@ -4,9 +4,9 @@ from surprise import Dataset
 from surprise import Reader
 from collections import defaultdict
 from surprise.model_selection import cross_validate
-import databaseCon
+from recommender_backend.database.databaseCon import Database
 
-con = databaseCon.Database()
+con = Database()
 loadedData = con.selectAll()
 
 userGroupId = loadedData[0]
@@ -46,7 +46,3 @@ def getRecommendedItems(uid):
     for users in recommendations.items():
         if users[0] == uid:
             return(users[1])
-
-# print(getRecommendedItems(1))
-
-

@@ -1,11 +1,11 @@
 from flask import Flask
 import json
-from .recommender import getRecommendedItems
+from core import getRecommendedItems
 
 
 app = Flask(__name__)
 
-@app.route("/predict/<int:uid>", strict_siashes=False)
+@app.route("/predict/<int:uid>")
 def predict(uid):
     return json.dumps(getRecommendedItems(uid), indent=2)
 
