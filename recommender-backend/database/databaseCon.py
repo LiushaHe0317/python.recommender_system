@@ -35,3 +35,9 @@ class Database:
         data.append(ratings)
 
         return data
+
+    def getNames(self, item_id):
+        self.cursor.execute("SELECT recipeName FROM recipe WHERE idRecipe = " + str(item_id) + ";")
+        rows = self.cursor.fetchall()
+
+        return rows[0]

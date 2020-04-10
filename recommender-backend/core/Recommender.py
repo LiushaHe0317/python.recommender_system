@@ -42,7 +42,10 @@ def get_top_n(predictions, n = 20):
 
 
 def getRecommendedItems(uid):
+    item_info = []
     recommendations = do_Predict()
     for users in recommendations.items():
         if users[0] == uid:
-            return(users[1])
+            for items in users[1]:
+                item_info.append(con.getNames(items[0]))
+            return item_info
